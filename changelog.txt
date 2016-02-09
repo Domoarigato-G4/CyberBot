@@ -1,6 +1,7 @@
 Newest changes at the top
 Format: MM/DD/YYYY HH:MM - comment  
 
+02/09/2016 14:27 - Created base controller
 02/09/2016 13:50 - Added bot cards into the data folder
 02/04/2016 18:07 - Created assets folder, data folders, and started _template.php
 02/04/2016 15:01 - Reformatted and added to the README.md 
