@@ -1,25 +1,21 @@
 <?php
-
 /**
  * This is a model for collections that grabs data from a MySQL database.
  *
  * @author Chris
  */
-class Collections extends CI_Model {
-
-
+class Collections extends CI_Model 
+{
 	// Constructor
 	public function __construct()
 	{
 		parent::__construct();
 	}
-
 	// retrieve a single collection item
 	public function get($which)
 	{
             // get data from the database
             $data = $this->db->get_where('collections',$which);
-
             // return the first and hopefully only record
             return $data->result_array()[0];
 	}
@@ -89,7 +85,6 @@ class Collections extends CI_Model {
             return $pieces;
             
         }
-
 	// retrieve all of the collection items
 	public function all()
 	{
@@ -98,7 +93,6 @@ class Collections extends CI_Model {
             
             return $data->result_array();
 	}
-
 	// retrieve the first collection item
 	public function first()
 	{
@@ -108,7 +102,6 @@ class Collections extends CI_Model {
             
             return $data[0];
 	}
-
 	// retrieve the last collection item
 	public function last()
 	{
@@ -139,5 +132,11 @@ class Collections extends CI_Model {
             
             return $data->result_array();
 	}
+        
+        // delete all collection data
+        public function truncate()
+        {
+            $this->db->truncate('collections'); 
+        }
 	
 }

@@ -1,6 +1,45 @@
 Newest changes at the top
 Format: MM/DD/YYYY HH:MM - comment  
 
+04/15/2016 11:55 - Removed obsolete buy controller & debug lines from buy components
+04/14/2016 15:38 - Player avatar displays in portfolio now
+04/14/2016 14:15 - Uploaded the rest of the bot parts
+04/14/2016 13:26 - Buying Cards working, tracks peanuts usage against database.
+04/14/2016 12:10 - Added function to admin page that purges known rounds
+04/13/2016 20:45 - Update player to admin function now working
+04/13/2016 17:49 - Delete player function now works in admin page
+04/13/2016 16:20 - Working on rendering of buying cards
+04/13/2016 15:44 - Updated player mgmt crud view with headers, created code stubs for admin cont.
+04/13/2016 15:26 - Created admin page's player mgmt CRUD controls in admin view
+04/13/2016 14:49 - Agent now gets its data from the right spot (oops)
+04/13/2016 15:29 - Piece and series display on the homepage using server data
+04/13/2016 11:37 - Added autorun agent and updated administration page to administer it
+04/13/2016 10:17 - Added presidential candidate to preset avatars
+04/12/2016 17:57 - Admin page now displays a table of all players (no pwhash)
+04/12/2016 17:02 - Player avatar shows up on the dashboard
+04/12/2016 16:20 - Admin page is now available in menubar for logged-in admin users
+04/12/2016 15:34 - Avatar properly appears when logged in
+04/12/2016 14:11 - modified transactions model to convert date properly
+04/12/2016 14:10 - Initial card buy component
+04/12/2016 12:56 - Added error message for uploading an avatar for registration
+04/12/2016 11:45 - Added default team name 'cyberbot' to admin view
+04/12/2016 11:37 - avatars will be renamed to == username, and success msg improved upon registration
+04/12/2016 11:03 - Removed unnecessary line from Registration controller
+04/12/2016 10:58 - Added error handling in server transactions and switched URL to use global constant
+04/12/2016 10:24 - Reverted Collections model to store data locally again
+04/11/2016 20:39 - Added transaction display to the homepage
+04/11/2016 20:40 - Implemented avatar upload in user registration
+04/11/2016 19:44 - Implemented password check for login
+04/11/2016 16:40 - Made some changes to the error messages
+04/11/2016 16:39 - Added transaction display to the homepage
+04/11/2016 15:33 - Added some error messages
+04/11/2016 14:05 - Base of the Registration is complete
+					-no error messages yet
+04/11/2016 13:55 - reverted game status check in Agent registration
+04/10/2016 18:33 - Styled the register view
+04/10/2016 17:25 - created MVC components for registration and filled in some components
+04/10/2016 16:26 - Added agent registration functionality and admin interface
+04/08/2016 13:32 - Added functionality that gets game status from server and displays it
 02/14/2016 20:46 - Styling in css applied for whole page for consistency
 02/14/2016 18:42 - Added styling to the Assembly page & minor fixes
 02/14/2016 00:44 - Fixed image src displaying bot pieces

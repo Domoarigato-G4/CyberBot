@@ -28,3 +28,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /assets/test.html
 /application/config/development/
 /application/controllers/test.php
+/data/uploads/Chris.jpg

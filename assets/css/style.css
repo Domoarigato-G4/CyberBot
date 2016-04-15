@@ -56,7 +56,7 @@ a:link {
     padding: 0.5em;
 }
 
-#loginbox > form input[type="text"]
+form input[type="text"], input[type="password"]
 {
     width: 12em;
     font-size: 0.75em;
@@ -95,54 +95,27 @@ a:link {
 	color: black;
 }
 
-.dashboardContainer
-{
-    width: 880px;
-    margin: auto;
-    min-height: 725px;
-}
-
-.statusContainer
-{
-    width: 45%;
-    float: left;
-    min-height: 575px;
-    background-color: lightgray;
-    margin-right: 15px;
-    padding-left: 15px;
-	box-shadow:0 0 20px orange;
-}
-
-.playersContainer
-{
-    width: 45%;
-    float: left;
-    min-height: 575px;
-    background-color: lightgray;
-    margin-left: 15px; 
-    padding-left: 15px;
-	box-shadow:0 0 20px purple;
-	font-family: 'Josefin Slab', serif;
-	font-weight: bold;
-}
-
-.rounds 
+#round-status
 {
     background-color: white;
     margin: auto;
-    float: left;
-    width: 350px;
-    min-height: 450px;
+    margin-top: 15px;
     margin-left: 15px;
     padding-left: 15px;
     margin-right: 15px;
-	margin-bottom: 25px;
-	padding-top: 25px;
-	box-shadow:0 0 20px green;
-	font-weight: bold;
+    margin-bottom: 25px;
+    box-shadow:0 0 20px yellow;
+    padding-bottom: 10px;
+    font-weight: bold;    
 }
 
-.homepagePlayers {
+#round-status > p
+{
+    font-size: 1.25em;
+}
+
+.homepage-players
+{
 	background-color: white;
     margin: auto;
     float: left;
@@ -156,25 +129,16 @@ a:link {
 	box-shadow:0 0 20px blue;
 }
 
-.statusContainer figure
+#homepage-pieces figure
 {
-	margin: auto;
-	width: 45%;
-	float: left;
-	margin-left: 7px;
+    margin: auto;
+    width: 45%;
+    float: left;
+    margin-left: 7px;
     margin-right: 7px;
-	margin-bottom: 12px;
-	border: 1px solid black;
-	box-shadow:0 0 20px yellow;
-}
-
-.statusContainer figure > img 
-{
-	
-}
-.statusContainer figure > figcaption 
-{
-	
+    margin-bottom: 12px;
+    border: 1px solid black;
+    box-shadow:0 0 10px yellow;
 }
 
 /* CSS for content containers (panes) */
@@ -183,13 +147,13 @@ a:link {
 {
     text-align: center;
     background-color: lightgray;
-	color: black;
-	font-weight: bold;
+    color: black;
+    font-weight: bold;
     width: 95%;
-	margin: 0 auto;
-	padding-bottom: 4%;
-	padding-top: 4%;
-	box-shadow:0 0 20px yellow;
+    margin: 0 auto;
+    padding-bottom: 4%;
+    padding-top: 4%;
+    box-shadow:0 0 20px yellow;
 }
 
 #content-left, #content-right
@@ -200,8 +164,12 @@ a:link {
     background-color: white;
     margin: 0.5em;
     padding: 0.5em;
-    vertical-align: top;
-	box-shadow:0 0 20px blueviolet;
+    vertical-align: top;	
+}
+
+#content-left
+{
+    box-shadow:0 0 20px blueviolet;
 }
 
 #content-right
@@ -210,6 +178,11 @@ a:link {
 }
 
 /* CSS for portfolio page */
+
+#buy-container
+{
+    
+}
 
 #portfolio-wrapper
 {
@@ -320,4 +293,76 @@ a:link {
 	text-align: center;
 }
 
+/* CSS for admin page */
 
+#admin-wrapper
+{
+	background-color: darkgray;
+	box-shadow:0 0 20px aquamarine;
+	color: black;
+	padding-bottom: 3%;
+}
+
+#admin-wrapper > div
+{
+    margin: 10px;
+}
+
+#admin-register #register-status
+{
+    font-size: 1.25em;
+}
+
+#admin-rounds p
+{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#registertable
+{
+	background:white;
+	color:black;
+}
+
+#registration-wrapper
+{
+	background:lightgray;
+	box-shadow:0 0 20px #33ffcc;
+	padding-top: 25px;
+	
+	padding-bottom: 25px;
+	width:90%;
+	margin: auto;
+}
+
+#registertable
+{
+	background: white;
+	box-shadow:0 0 20px #ff6699;
+	padding-top: 25px;
+	width:90%;
+	margin: auto;
+}
+
+.body
+{
+	width: 98%;
+    margin: auto;
+    min-height: 300px;
+	color: black;
+	background-color: darkgray;
+	box-shadow:0 0 20px #ffff33;
+	padding-top: 25px;
+}
+
+.register
+{
+	color:red;
+}
+
+#avatar
+{
+	padding-left:25px;
+	padding-bottom: 25px;
+}

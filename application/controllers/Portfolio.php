@@ -15,6 +15,11 @@ class Portfolio extends Application {
             $this->load->model('players');
             $this->load->model('collections');
             $this->load->model('transactions');
+            $this->load->model('purchase');
+            $this->load->model('gamestate');
+            $this->load->model('agent');
+            $this->load->helper('form');
+            $this->load->library('session');
     }
 
     //-------------------------------------------------------------
@@ -23,16 +28,38 @@ class Portfolio extends Application {
 
     function index()
     {   
+        $this->render_page();
+    }
+    
+    function render_page() 
+    {
         $this->data['title'] = 'Player Portfolio';
         $this->data['pagebody'] = 'portfolio';
-        
-        // get list of players
+        $this->player_prep();      
+        $this->create_holdings_pane();
+        $this->create_activity_pane(); 
+        if (!empty($this->session->flashdata('last_buy')))
+        {
+            $buy_message = $this->session->flashdata('last_buy');
+            $this->data['buy_response'] = $buy_message;
+        }
+        else 
+            {
+            $this->data['buy_response'] = "";
+            }
+        $this->render();
+    }
+
+    function player_prep()
+    {
+         // get list of players
         $players_records = $this->players->all();
         
         //get player from GET, get player from session if it doesn't exist, default to first known player
         if($this->input->get('player'))
         {
             $this->player = $this->input->get('player');
+			$this->data['name'] = $this->input->get('player');
         }
         else if($this->session->userdata('username'))
         {
@@ -53,17 +80,12 @@ class Portfolio extends Application {
             {
                 $record['selected'] = 'selected="selected"';
             }
-            
             $players[] = (array) $record;
         }
         $this->data['players'] = $players;
-        
-        $this->create_holdings_pane();
-        $this->create_activity_pane();
-        
-        $this->render();
     }
-
+    
+    
     function create_holdings_pane()
     {
         $data_pieces = $this->collections->get_pieces(array('player'=>$this->player));
@@ -106,6 +128,30 @@ class Portfolio extends Application {
         }
         $this->data['sales'] = $sales;
     }
+    
+    function buy_cards()
+        {  
+            // purchase cards, send required info to purchase model
+            //team: your team code 'A04'
+            // token: your agent authentication token
+            // player: the name of your player 
+
+        
+            $team = "A04"; // team name
+            $token = $this->agent->get_token(); // token, team must have been registered
+
+            $player =  $this->session->userdata('username'); // current playername stored in session data
+    
+            $success = $this->purchase->purchase($team,$token,$player); 
+            $buy_message = $success;
+            $this->session->set_flashdata('last_buy', $buy_message); //record feedback message
+            redirect('portfolio'); // reload the page
+            
+            
+            
+        }
+    
+
 }
 
 /* End of file Portfolio.php */
