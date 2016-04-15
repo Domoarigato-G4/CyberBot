@@ -17,7 +17,7 @@ class Purchase extends CI_Model
         
     }
     
-    //todo
+ 
     //    <certificate>
     //        <token>102d6</token>
     //        <piece>11b-1</piece>
@@ -33,11 +33,11 @@ class Purchase extends CI_Model
        //is the game status open?
         $this->gamestate->refresh();
         $code = $this->gamestate->get_code(); // 3 represents open
-        if ($code == 3 ) //&&  $this->agent->is_registered() )
+        if ($code == 3 ) 
         {
             
             
-            //echo $team . $token . $player;
+         
             if(!empty($team) && !empty($token) && !empty($player)) //verify parameters
             {
                 
@@ -65,7 +65,7 @@ class Purchase extends CI_Model
                         'datetime' => $timestamp
                          );
                         $this->db->insert('collections', $data);// insert into database
-                       // $report = $report .  'inserted:' . (string)$certificate->piece . '</br>' ;
+                     
 
 
                     }

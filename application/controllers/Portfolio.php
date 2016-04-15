@@ -131,21 +131,21 @@ class Portfolio extends Application {
     
     function buy_cards()
         {  
+            // purchase cards, send required info to purchase model
             //team: your team code 'A04'
             // token: your agent authentication token
             // player: the name of your player 
 
-            //TODO: 
+        
             $team = "A04"; // team name
             $token = $this->agent->get_token(); // token, team must have been registered
-            //'420b6631881d8de28f1bc51e287c8c91'; // force enter token for debug porpoises
-            //$player = 'Richard';
+
             $player =  $this->session->userdata('username'); // current playername stored in session data
-           // echo $player;
+    
             $success = $this->purchase->purchase($team,$token,$player); 
             $buy_message = $success;
-            $this->session->set_flashdata('last_buy', $buy_message);
-            redirect('portfolio');
+            $this->session->set_flashdata('last_buy', $buy_message); //record feedback message
+            redirect('portfolio'); // reload the page
             
             
             

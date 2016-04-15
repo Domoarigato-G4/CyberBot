@@ -1,6 +1,7 @@
 Newest changes at the top
 Format: MM/DD/YYYY HH:MM - comment  
 
+04/15/2016 11:55 - Removed obsolete buy controller & debug lines from buy components
 04/14/2016 15:38 - Player avatar displays in portfolio now
 04/14/2016 14:15 - Uploaded the rest of the bot parts
 04/14/2016 13:26 - Buying Cards working, tracks peanuts usage against database.
