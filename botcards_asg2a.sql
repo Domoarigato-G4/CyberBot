@@ -14,7 +14,8 @@ DROP TABLE IF EXISTS collections;
 CREATE TABLE IF NOT EXISTS collections (
   token char(6) NOT NULL,
   piece char(5) NOT NULL,
-  player varchar(6) NOT NULL, 
+  broker varchar(255),
+  player varchar(25) NOT NULL, 
   datetime datetime NOT NULL,
   PRIMARY KEY (token)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -58,14 +59,17 @@ DROP TABLE IF EXISTS players;
 CREATE TABLE IF NOT EXISTS players (
   player varchar(25) NOT NULL,
   peanuts integer NOT NULL,
+  adminrole boolean NOT NULL,
+  pwhash CHAR(128) NOT NULL,
+  imgpath varchar(40) NOT NULL,
   PRIMARY KEY (player)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO players (player, peanuts) VALUES
-('Mickey', '200'),
-('Donald', '35'),
-('George', '500'),
-('Henry', '100');
+INSERT INTO players (player, peanuts, adminrole, pwhash, imgpath) VALUES
+('Mickey', '200', FALSE, '$2y$10$ahhxkbfhlQx9lfZViF6SU.IKEeme1DDQuVVp8mLAI/WvMRqoMDt/m', '/data/uploads/mickey.jpg'), -- passwords for all these hashes are just 'password'
+('Donald', '35', TRUE, '$2y$10$ahhxkbfhlQx9lfZViF6SU.IKEeme1DDQuVVp8mLAI/WvMRqoMDt/m', '/data/uploads/donald.jpg'),
+('George', '500', FALSE, '$2y$10$ahhxkbfhlQx9lfZViF6SU.IKEeme1DDQuVVp8mLAI/WvMRqoMDt/m', '/data/uploads/george.jpg'),
+('Henry', '100', FALSE, '$2y$10$ahhxkbfhlQx9lfZViF6SU.IKEeme1DDQuVVp8mLAI/WvMRqoMDt/m', '/data/uploads/henry.jpg');
 
 -- --------------------------------------------------------
 
@@ -97,13 +101,14 @@ DROP TABLE IF EXISTS transactions;
 CREATE TABLE IF NOT EXISTS transactions (
   transaction_id integer NOT NULL AUTO_INCREMENT,
   datetime datetime NOT NULL,
-  player varchar(6) NOT NULL,
+  broker varchar(255),
+  player varchar(25) NOT NULL,
   series smallint DEFAULT NULL,
   trans varchar(5) NOT NULL,
   PRIMARY KEY (transaction_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `transactions` (datetime, player, series, trans) VALUES
+INSERT INTO transactions (datetime, player, series, trans) VALUES
 ('2016.02.01-09:01:00', 'Henry', '11', 'sell'),
 ('2016.02.01-09:01:05', 'George', NULL, 'buy'),
 ('2016.02.01-09:01:10', 'Mickey', NULL, 'buy'),
@@ -118,3 +123,35 @@ INSERT INTO `transactions` (datetime, player, series, trans) VALUES
 ('2016.02.01-09:01:55', 'George', NULL, 'buy'),
 ('2016.02.01-09:01:60', 'George', NULL, 'buy');
 
+-- --------------------------------------------------------
+
+--
+-- rounds table
+--
+
+DROP TABLE IF EXISTS rounds;
+CREATE TABLE IF NOT EXISTS rounds (
+  round integer NOT NULL,
+  token varchar(255), -- to be honest I have no idea what the token will look like, so make this hueg to be safe
+  PRIMARY KEY (round)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO rounds (round, token) VALUES
+(0, '88ACD6FE280');
+
+-- --------------------------------------------------------
+
+--
+-- registration data table
+--
+
+DROP TABLE IF EXISTS agent;
+CREATE TABLE IF NOT EXISTS agent (
+  team char(3) NOT NULL,
+  name varchar(255),
+  password varchar(30),
+  PRIMARY KEY (team)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO agent (team, name, password) VALUES
+('A04', 'cyberbot_autodb', 'tuesday');
